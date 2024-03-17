@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.logout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../images/bglogin.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: sticky;
+    background-position: center;
+    color: aliceblue;
+    font-family: "Inter", sans-serif;
+}
+ 
+    .new-meet-button {
+    background-color: transparent; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    letter-spacing: 10%;
+    font-weight: 100;
+    border-radius: 5px;
+    cursor: pointer;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+  }
+
+   .Navbar {
+    display: flex;
+    align-items: center;
+    background-color:transparent; /* Example background color */
+    color: white; /* Example text color */
+    padding: 1px;
+    width: 100%;
+    position: fixed;
+    top: 5%;
+    left: 0;
+    margin-bottom: 2%;
+  }
+  
+  .dashboard-section {
+    flex-grow: 2; /* Occupies the first two columns */
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+  }
+  
+  .dashboard-title {
+    font-size:250%;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+  
+  .new-meet-section {
+    flex-grow: 1;
+    margin-right: 20%; /* Occupies the third column */
+  }
+  
+  .user-info-section {
+    flex-grow: 1; /* Occupies the fifth column */
+    width:30%;
+  }
+  
+  .user-info {
+    display: flex;
+    margin-left: 50%;
+    margin-right: 5%;
+    width:80%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-picture-section {
+    flex-grow: 0; /* Occupies the last two columns */
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+    width: 4.5%;
+    height: 80%;
+    margin-left: 6%;
+  }
+  
+  .profile-photo {
+    width: 100%; /* Adjust size as needed */
+    height: 100%; /* Adjust size as needed */
+    border-radius: 50%;
+  }
+  
+  .email {
+    margin-bottom: 5px;
+    font-size:x-small;
+    letter-spacing: 2px;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .username{
+    margin-bottom: 5px;
+    font-size: smaller;
+    letter-spacing: 1px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+  }
+  
+  .sign-out-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Example color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.line{
+    margin-top: 1%;
+    width: 80%;
+    margin-bottom: 2%;
+    color: #ABAAAA;
+    border-color: #ABAAAA;
+}
