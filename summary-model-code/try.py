@@ -22,7 +22,7 @@ def extract_data(text):
 
     # Extract data using regular expressions
     dates = re.findall(date_regex, text)
-    names = re.findall(name_regex, text)
+    names = set(re.findall(name_regex, text))
     cities = re.findall(city_pattern, text, flags=re.IGNORECASE)
     phones = re.findall(phone_regex, text)
     pincodes = re.findall(pincode_regex, text)
@@ -116,7 +116,7 @@ def summary(text):
     return summary
 
 
-def mainFunc(inp_text, dates, names, cities, phone_number, pincode):
+def mainFunc(inp_text, dates, names, cities, phone_number, pincode, output_file):
 
     # getting text cleaned
     if "**" not in inp_text:
@@ -135,21 +135,23 @@ def mainFunc(inp_text, dates, names, cities, phone_number, pincode):
     # Concatenate summary with extracted information
     full_summary += "Meeting Date(s): {}\n".format(", ".join(dates))
     full_summary += "Participants in meeting: {}\n".format(", ".join(name.strip() for name in names))
-    full_summary += "Number of Participants Speak: {}\n".format(len(names))
+    
     full_summary += "Cities mentioned in meeting: {}\n".format(", ".join(cities))
     full_summary += "Phone Number mentioned in meeting:: {}\n".format(", ".join(phone_number))
     full_summary += "Pincode(s) mentioned in meeting:: {}\n".format(", ".join(pincode))
     full_summary += "SUMMARY:-\n"+summary_text + "\n\n"
 
-    return full_summary
+    # Write summary to a new text file
+    with open(output_file, 'w') as file:
+        file.write(full_summary)
 
 
 file_path = 'text_file.txt'
+output_file = 'summary_output.txt'
 text = read_text_file(file_path)
 dates, names, cities, phones, pincodes = extract_data(text)
 
-# Generate summary using the NLTK model
-summary_text = mainFunc(text, dates, names, cities, phones, pincodes)
+# Generate summary using the NLTK model and save it to a new file
+mainFunc(text, dates, names, cities, phones, pincodes, output_file)
 
-# Print NLTK-generated summary
-print("\nSummary:\n", summary_text)
+print("Summary has been saved to", output_file)
