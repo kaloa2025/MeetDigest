@@ -1,0 +1,125 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TranscripTonic</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+    body {
+      width: 450px;
+      padding: 1rem;
+      background: #01000F;
+      color: white;
+      font-family: "Inter", sans-serif;
+      background-image: url(bglogin.png);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    hr {
+      border-color: #ABAAAA;
+    }
+
+    .get-started {
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(4px);
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    ul {
+      padding-inline-start: 20px;
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    img {
+      border-radius: 96px;
+    }
+
+    input {
+      accent-color: #2A9ACA;
+      width: 18px;
+    }
+
+    label {
+      margin: 0px;
+      margin-bottom: 0.25rem;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mainn">
+    <div style="margin-bottom: 2rem;">
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <img src="./icon.png" width="48px" height="48px" alt="" />
+        <div>
+          <h1 style="margin: 0px;">MeetDigest</h1>
+          <p style="margin: 0px;">
+            Simple Google Meet transcripts. Private and Secure.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin-bottom: 2rem;" />
+
+    <div style="display: flex; gap: 0.25rem;">
+      <input type="radio" name="mode" id="auto-mode" />
+      <label>ON (records transcripts for all meetings) </label>
+
+    </div>
+    <div style="margin-bottom: 2rem; display: flex; gap: 0.25rem;">
+      <input type="radio" name="mode" id="manual-mode" />
+      <label>OFF (Turn off the Transcript record) </label>
+
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+
+  <script>
+    document.getElementById('auto-mode').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/runcode', {
+          method: 'POST'
+        });
+        const data = await response.json();
+        console.log(data);
+        alert(data.message);
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while running the Python script');
+      }
+    });
+  </script>
+  <script>
+    document.getElementById('manual-mode').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/runcode', {
+          method: 'POST'
+        });
+        const data = await response.json();
+        console.log(data);
+        alert(data.message);
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while running the Python script');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
